@@ -19,6 +19,7 @@ module GraphQL
 
       # @param schema [GraphQL::Schema]
       def initialize(schema, introspection: true)
+        puts "GraphQL::Schema::Traversal::Init"
         @schema = schema
         @introspection = introspection
         built_in_insts = [
@@ -107,6 +108,7 @@ Some late-bound types couldn't be resolved:
       end
 
       def visit(schema, member, context_description)
+        sleep((1.0 / 200.0) * rand())
         case member
         when GraphQL::Schema
           member.directives.each { |name, directive| visit(schema, directive, "Directive #{name}") }

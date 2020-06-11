@@ -907,7 +907,8 @@ module GraphQL
       end
 
       def graphql_definition
-        @graphql_definition ||= to_graphql
+        # @graphql_definition ||= to_graphql
+        to_graphql
       end
 
       def default_filter
